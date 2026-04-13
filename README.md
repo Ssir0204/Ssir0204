@@ -1,16 +1,18 @@
-## Hi there 👋
 
-<!--
-**Ssir0204/Ssir0204** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+"Homework3"
 
-Here are some ideas to get you started:
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+img = cv2.imread('dsu4.jpg')
+rows,cols = img.shape[:2]
+
+pts1 = np.float32([[324, 335], [546, 310], [550, 620]])
+pts2 = np.float32([[100, 250], [500, 250], [500, 650]])
+M = cv2.getAffineTransform(pts1, pts2)
+dst = cv2.warpAffine(img, M, (cols, rows))
+
+cv2.imshow('Affine Transform',dst)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
