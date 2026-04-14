@@ -36,6 +36,12 @@ cv2.destroyAllWindows()
 "Homework5"
 
 
+<img width="1415" height="780" alt="image" src="https://github.com/user-attachments/assets/dfbbc854-c266-4183-89cb-a2dea157e5a5" />
+
+
+
+<img width="1182" height="654" alt="image" src="https://github.com/user-attachments/assets/ebc2e7a4-d593-4976-8019-d26fa0d84ded" />
+
 
 
 
