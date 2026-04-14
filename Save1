@@ -51,11 +51,19 @@ while True:
     x1, x2 = min(ix, ex), max(ix, ex)
     y1, y2 = min(iy, ey), max(iy, ey)
 
+    if drawing and ix != -1 and iy != -1:
+        overlay = clone.copy()
+        cv2.rectangle(clone, (ix, iy), (ex, ey), (0, 0, 255), -1)
+
+        alpha = 0.35
+        cv2.addWeighted(overlay, alpha, clone, 1 - alpha, 0, clone)
+
+
     if s == 1 and x1 != -1:
         if x1 != x2 and y1 != y2:
             clone[y1:y2, x1:x2] = [b, g, r]
-            
-            cv2.rectangle(clone, (x1, y1), (x2, y2), (0, 255, 0), 1)
+
+            cv2.rectangle(clone, (x1, y1), (x2, y2), (0, 255, 0), 1)   
 
     info = f"Mouse: ({ix},{iy}) - ({ex},{ey}) | RGB: ({r},{g},{b}) | Switch: {s}"
     cv2.putText(clone, info, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 1)
